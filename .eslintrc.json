@@ -1,0 +1,33 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "plugins": ["svelte3"],
+  "extends": ["eslint:recommended"],
+  "overrides": [
+    {
+      "files": ["**/*.svelte"],
+      "processor": "svelte3/svelte3"
+    }
+  ],
+  "ignorePatterns": ["rollup.config.js", "scripts"],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "no-multiple-empty-lines": "error",
+    "semi": ["error", "always"], // remove ;
+    "quotes": ["error", "single"], // " -> '
+    "indent": [
+      "error",
+      2, // 2 spaces indent
+      { "SwitchCase": 1 }
+    ],
+    "array-bracket-spacing": ["error", "always"]
+  }
+}

@@ -1,0 +1,4 @@
+public/build
+node_modules/
+scripts/setupTypeScript.js
+rollup.config.js
