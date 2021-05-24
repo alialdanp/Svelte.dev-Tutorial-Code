@@ -22,7 +22,7 @@
     "comma-dangle": ["error", "always-multiline"],
     "no-multiple-empty-lines": "error",
     "semi": ["error", "always"], // remove ;
-    "quotes": ["error", "single"], // " -> '
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }], // " -> '
     "indent": [
       "error",
       2, // 2 spaces indent
