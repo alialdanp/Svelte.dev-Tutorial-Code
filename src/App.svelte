@@ -1,35 +1,21 @@
 <script>
-  let cats = [
-    { id: 'J---aiyznGQ', name: 'Keyboard Cat' },
-    { id: 'z_AbfPXTKms', name: 'Maru' },
-    { id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' },
+  import Thing from './Thing.svelte';
+
+  let things = [
+    { id: 1, color: 'darkblue' },
+    { id: 2, color: 'indigo' },
+    { id: 3, color: 'deeppink' },
+    { id: 4, color: 'salmon' },
+    { id: 5, color: 'gold' },
   ];
+
+  function handleClick() {
+    things = things.slice(1);
+  }
 </script>
 
-<h1>The Famous Cats of YouTube</h1>
+<button on:click={handleClick}> Remove first thing </button>
 
-<ul>
-  <!-- {#each cats as cat}
-    <li>
-      <a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
-        {cat.name}
-      </a>
-    </li>
-  {/each} -->
-
-  <!-- {#each cats as cat, i}
-    <li>
-      <a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
-        {i + 1}: {cat.name}
-      </a>
-    </li>
-  {/each} -->
-
-  {#each cats as { id, name }, i}
-    <li>
-      <a target="_blank" href="https://www.youtube.com/watch?v={id}">
-        {i + 1}: {name}
-      </a>
-    </li>
-  {/each}
-</ul>
+{#each things as thing (thing.id)}
+  <Thing current={thing.color} />
+{/each}
