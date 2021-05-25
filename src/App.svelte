@@ -1,12 +1,15 @@
 <script>
-  import Info from './Info.svelte';
+  let user = { loggedIn: false };
 
-  const pkg = {
-    name: 'svelte',
-    version: 3,
-    speed: 'blazing',
-    website: 'https://svelte.dev',
-  };
+  function toggle() {
+    user.loggedIn = !user.loggedIn;
+  }
 </script>
 
-<Info {...pkg} />
+{#if user.loggedIn}
+  <button on:click={toggle}> Log out </button>
+{/if}
+
+{#if !user.loggedIn}
+  <button on:click={toggle}> Log in </button>
+{/if}
