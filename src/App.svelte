@@ -1,13 +1,9 @@
 <script>
-  function handleClick() {
-    alert('no more alerts');
+  import Inner from './Inner.svelte';
+
+  function handleMessage(event) {
+    alert(event.detail.text);
   }
 </script>
 
-<button on:click|once={handleClick}> 
-  Click me 
-</button>
-
-<!-- You can chain modifiers together, e.g. 
-  on:click|once|capture={...}. 
--->
+<Inner on:message={handleMessage} />
